@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% block title %}Personality Test{% endblock %} {% block content
+    %}
+    <style>
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;  
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+          }
+          
+          .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%; 
+            background: #04AA6D;
+            cursor: pointer;
+          }
+          
+          .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+          }
+    </style>
+    <form method="POST">
+        <br /> 
+      <h3 class="font-weight-bold" align="center"> Rate Your Personal Skills From 1 to 10  </h3>
+      <br />
+      <div class="form-group">
+        <label class="font-weight-bold" for="gender">Gender</label>
+        <br />
+        <input type="radio" id="male" name="options"  value="male">
+        <label for="male">MALE</label><br>
+        <input type="radio" id="female" name="options" value="female">
+        <label for="female">FEMALE</label><br>
+      </div>
+      <div class="form-group">
+        <label class="font-weight-bold" for="age">AGE</label>
+        <input
+          type="number"
+          class="form-control"
+          id="age"
+          name="age"
+          onkeypress="return isNumberKey(event)"
+          placeholder="Enter your age"
+        />
+      </div>
+      <div class="form-group slidecontainer">
+        <label class="font-weight-bold" for="openness">openness الانفتاح</label>
+        <input class="form-control slider" type="range" min="1" max="10" value="1" id="openness" name="openness">
+      </div>
+      <div class="form-group slidecontainer">
+        <label class="font-weight-bold" for="neuroticism">neuroticism العصابية</label>
+        <input class="form-control slider" type="range" min="1" max="10" value="1" id="neuroticism" name="neuroticism">
+      </div>
+      <div class="form-group slidecontainer">
+        <label class="font-weight-bold" for="conscientiousness">conscientiousness الضمير</label>
+        <input class="form-control slider" type="range" min="1" max="10" value="1" id="conscientiousness" name="conscientiousness">
+      </div>
+      <div class="form-group slidecontainer">
+        <label class="font-weight-bold" for="agreeableness">agreeableness الموافقة</label>
+        <input class="form-control slider" type="range" min="1" max="10" value="1" id="agreeableness" name="agreeableness">
+      </div>
+      <div class="form-group slidecontainer">
+        <label class="font-weight-bold" for="extraversion">extraversion الانبساط</label>
+        <input class="form-control slider" type="range" min="1" max="10" value="1" id="extraversion" name="extraversion">
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">EVALUATE</button>
+      <br />
+      <br />
+    </form>
+    {% endblock %}

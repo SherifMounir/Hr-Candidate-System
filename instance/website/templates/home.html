@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+    <h1 align="center">Current JOBS</h1>
+    <ul class="list-group list-group-flush" id="jobs">
+      {% if user.category == 'hr' %}
+      {% for job in user.jobs %}
+      <li class="list-group-item">
+        <span class="font-weight-bold" style="color:rgb(128, 0, 0)">JOB TITLE </span>: {{ job.title }}
+        <br />
+        <span class="font-weight-bold" style="color:green">SKILLS </span> : {{ job.Required_skills }}
+        <!-- <button type="button" class="close" onClick="deleteJob({{ job.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </li>
+      {% endfor %}
+      {% else %}
+      {% for hr in hrs %}
+      {% for job in hr.jobs %}
+      <li class="list-group-item">
+        <span class="font-weight-bold" style="color:rgb(128, 0, 0)">JOB TITLE </span>: {{ job.title }}
+        <br />
+        <span class="font-weight-bold" style="color:green">SKILLS </span> : {{ job.Required_skills }}
+        <!-- <button type="button" class="close" onClick="deleteJob({{ job.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </li>
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
+
+
+    </ul>
+    <!-- <form method="POST">
+      <textarea aria-label="Job" name="job" id="job" class="form-control"></textarea>
+      <br />
+      <textarea aria-label="Skills" name="skills" id="skills" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Job</button>
+      </div>
+    </form> -->
+    {% endblock %}

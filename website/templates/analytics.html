@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}View Analytics{% endblock %} {% block content%}
+    <h4 align="left">JOBS</h4>
+    <ul class="list-group list-group-flush" id="jobs">
+      {% for job in user.jobs %}
+      <li class="list-group-item">
+        <h1 align="center" class="font-weight-bold" style="color:rgb(9, 7, 10)"> {{ job.title }}</h1> 
+        <!-- <span class="font-weight-bold" style="color:green">SKILLS </span> : {{ job.Required_skills }} -->
+      </li>
+      {% if job.candidates|length > 0 %}
+      <h5 align="center" class="font-weight-bold" style="color:rgb(92, 0, 128)">ALL CANDIDATE DATA</h5>
+      <!-- {% set scores = [] %}
+      {% for candidate in job.candidates %}
+      {{ candidate.resume_score | int}}  -->
+      <!-- {{ scores.append( candidate.resume_score | int) }}
+      {% endfor %}
+      {% for score in scores|sort %}
+      {% endfor %}  -->
+      {% for candidate in job.candidates|sort(attribute='resume_score'| int, reverse = True) %}
+      {% endfor %}
+      {% for candidate in job.candidates %}
+      <li class="list-group-item">
+        <span class="font-weight-bold" style="color:rgb(128, 126, 0)">EMAIL </span>:{{ candidate.email }} , 
+        <span class="font-weight-bold" style="color:rgb(128, 126, 0)">CV SCORE </span>:{{ candidate.resume_score }}% ,
+        <span class="font-weight-bold" style="color:rgb(128, 126, 0)">PREDICTED PRESONALITY </span>:{{ candidate.Predicted_Field }} ,
+        <span class="font-weight-bold" style="color:rgb(128, 126, 0)">LEVEL </span>:{{ candidate.User_level }} 
+         <br /> 
+
+      </li>
+      {% endfor %}
+      {% else %}
+      <h5 align="center" class="font-weight-bold" style="color:rgb(216, 128, 128)">NO CANDIDATE APPLY YET</h5>
+
+      {% endif %}
+      <br class="font-weight-bold" style="color:rgb(9, 7, 10)" />
+      <br class="font-weight-bold" style="color:rgb(9, 7, 10)"/>
+      {% endfor %}
+    </ul>
+    {% endblock %}

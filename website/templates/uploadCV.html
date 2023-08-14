@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Apply For This Job{% endblock %} {% block content%}
+    <h1 align="center">Apply For This Job</h1>
+    <ul class="list-group list-group-flush" id="jobs">
+      <li class="list-group-item">
+        <span class="font-weight-bold" style="color:rgb(128, 0, 0)">JOB TITLE </span>: {{ current_job.title }}
+        <br />
+        <span class="font-weight-bold" style="color:green">SKILLS </span> : {{ current_job.Required_skills }}
+        <br />
+        <br />
+        <form method='POST' enctype='multipart/form-data'>
+            {{form.hidden_tag()}}
+            {{form.file()}}
+            {{form.submit()}}
+        </form>
+      </li>
+    </ul>
+    {% endblock %}

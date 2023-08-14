@@ -1,0 +1,15 @@
+pdfminer3
+pyresparser
+pandas
+pafy
+plotly
+pymysql
+Pillow
+flask
+Flask-SQLAlchemy
+flask-login
+flask_wtf
+wtforms
+sklearn
+werkzeug
+lxml

@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Add Job{% endblock %} {% block content%}
+    <h1 align="center">Current JOBS</h1>
+    <ul class="list-group list-group-flush" id="jobs">
+      {% for job in user.jobs %}
+      <li class="list-group-item">
+        <span class="font-weight-bold" style="color:rgb(128, 0, 0)">JOB TITLE </span> : {{ job.title }}
+        <br />
+        <span class="font-weight-bold" style="color:green">SKILLS </span> : {{ job.Required_skills }}
+        <button type="button" class="close" onClick="deleteJob({{ job.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    <h2 align="center">Post New Job</h2>
+    <form method="POST">
+     <label class="font-weight-bold" for="job">Job Title</label>  
+      <textarea aria-label="Job" name="job" id="job" class="form-control"></textarea>
+      <br />
+      <label class="font-weight-bold" for="skills">Required Skills</label>  
+      <textarea aria-label="Skills" name="skills" id="skills" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Job</button>
+      </div>
+    </form>
+    {% endblock %}
