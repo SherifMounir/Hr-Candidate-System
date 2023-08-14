@@ -1,2 +1,3 @@
 # Hr-Candidate-System
-Developing a flask application to handle Hr/Candidate system.
+
+Developing a flask application to handle Hr/Candidate system , which give the hr user the ability to register and log in the system , so he could post new jobs , delete previous jobs and view analytics for all candidates who apply to a specific job . on the other hand the system handle candidate side who also can register and log in the system , view all posted jobs from all hr users , upload his cv and apply for a job or more than one job , the system estimate a score for his uploaded cv to the job who apply for using TF-IDF algorithm , after that he can take a presonality test to estimate his personality using pre-trained logistic regression modal. the hr now can see the applicant cv scores and personality prediction under the analytics tab .
